@@ -1,33 +1,29 @@
+import React, { useEffect } from "react";
+import { Container, Typography, Box } from "@mui/material";
+import AddHabitForm from "./components/Add-habit-from";
+import HabitList from "./components/Habit-list";
+import HabitStats from "./components/Habit-stats";
+import useHabitStore from "./store/store";
 
-import { Container, Typography ,Box } from '@mui/material'
-import './App.css'
-import AddHabitForm from './components/Add-habit-from'
-import HabitList from './components/Habit-list'
-// import useHabitstore from './store/store'
+const App: React.FC = () => {
+  const { fetchHabits } = useHabitStore();
 
-function App() {
- 
- // const store = useHabitstore()
- // console.log(store)
+  useEffect(() => {
+    fetchHabits();
+  }, []);
 
   return (
-    <Container>
-<Box>
-  <Typography variant='h2' component="h1" gutterBottom align='center' >
-    Habit tracker
-  </Typography>
-  {/* form  */}
-  {/* list  */}
- 
-  {/* stats  */}
-  <AddHabitForm />
-    <HabitList />
-
-</Box>
-
-
+    <Container maxWidth="md">
+      <Box sx={{ my: 4 }}>
+        <Typography variant="h2" component="h1" gutterBottom align="center">
+          Habit Tracker
+        </Typography>
+        <AddHabitForm />
+        <HabitList />
+        <HabitStats />
+      </Box>
     </Container>
-  )
-}
+  );
+};
 
-export default App
+export default App;
