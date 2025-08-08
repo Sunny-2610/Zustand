@@ -37,15 +37,15 @@ const HabitList: React.FC = () => {
     <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 4 }}>
       {habits.map((habit) => (
         <Paper key={habit.id} elevation={2} sx={{ p: 2 }}>
-          <Grid container alignItems="center">
-            <Grid xs={12} sm={6}>
+          <Grid container alignItems="center" spacing={2}>
+            <Grid item xs={12} sm={6}>
               <Typography variant="h6">{habit.name}</Typography>
               <Typography variant="body2" color="text.secondary">
                 {habit.frequency.charAt(0).toUpperCase() +
                   habit.frequency.slice(1)}
               </Typography>
             </Grid>
-            <Grid xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>
               <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 1 }}>
                 <Button
                   variant="outlined"
